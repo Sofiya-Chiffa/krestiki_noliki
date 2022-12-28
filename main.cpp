@@ -47,101 +47,93 @@ void hum_step(string b){
         i = (a -1) / 3;
         j = (a - 1) - ((a - 1) / 3 * 3);
     }
-    field[i][j] = 'x';
+    field[i][j] = pl;
 }
 
 void pc_step(int a){
     if (field[0][0] == field[0][1] && field[0][0] != '_' && field[0][2] == '_'){
-        field[0][2] = 'o';
+        field[0][2] = pc;
     }
     else if (field[0][0] == field[0][2] && field[0][0] != '_' && field[0][1] == '_'){
-        field[0][1] = 'o';
+        field[0][1] = pc;
     }
     else if (field[0][1] == field[0][2] && field[0][1] != '_' && field[0][0] == '_'){
-        field[0][0] = 'o';
+        field[0][0] = pc;
     }
     else if (field[0][0] == field[1][0] && field[0][0] != '_' && field[2][0] == '_'){
-        field[2][0] = 'o';
+        field[2][0] = pc;
     }
     else if (field[0][0] == field[2][0] && field[0][0] != '_' && field[1][0] == '_'){
-        field[1][0] = 'o';
+        field[1][0] = pc;
     }
     else if (field[1][0] == field[2][0] && field[1][0] != '_' && field[0][0] == '_'){
-        field[0][0] = 'o';
+        field[0][0] = pc;
     }
     else if (field[0][0] == field[1][1] && field[0][0] != '_' && field[2][2] == '_'){
-        field[2][2] = 'o';
+        field[2][2] = pc;
     }
     else if (field[0][0] == field[2][2] && field[0][0] != '_' && field[1][1] == '_'){
-        field[1][1] = 'o';
+        field[1][1] = pc;
     }
     else if (field[2][2] == field[1][1] && field[1][1] != '_' && field[0][0] == '_'){
-        field[0][0] = 'o';
+        field[0][0] = pc;
     }
-
-
     else if (field[2][2] == field[1][2] && field[2][2] != '_' && field[0][2] == '_'){
-        field[0][2] = 'o';
+        field[0][2] = pc;
     }
     else if (field[2][2] == field[0][2] && field[0][2] != '_' && field[1][2] == '_'){
-        field[1][2] = 'o';
+        field[1][2] = pc;
     }
     else if (field[1][2] == field[0][2] && field[0][2] != '_' && field[2][2] == '_'){
-        field[2][2] = 'o';
+        field[2][2] = pc;
     }
     else if (field[2][2] == field[2][1] && field[2][2] != '_' && field[2][0] == '_'){
-        field[2][0] = 'o';
+        field[2][0] = pc;
     }
     else if (field[2][2] == field[2][0] && field[2][2] != '_' && field[2][1] == '_'){
-        field[2][1] = 'o';
+        field[2][1] = pc;
     }
     else if (field[2][0] == field[2][1] && field[2][0] != '_' && field[2][2] == '_'){
-        field[2][2] = 'o';
+        field[2][2] = pc;
     }
-
-
     else if (field[0][2] == field[1][1] && field[0][2] != '_' && field[2][0] == '_'){
-        field[2][0] = 'o';
+        field[2][0] = pc;
     }
     else if (field[2][0] == field[0][2] && field[2][0] != '_' && field[1][1] == '_'){
-        field[1][1] = 'o';
+        field[1][1] = pc;
     }
     else if (field[2][0] == field[1][1] && field[2][0] != '_' && field[0][2] == '_'){
-        field[0][2] = 'o';
+        field[0][2] = pc;
     }
-
-
     else if (field[1][0] == field[1][1] && field[1][0] != '_' && field[1][2] == '_'){
-        field[1][2] = 'o';
+        field[1][2] = pc;
     }
     else if (field[1][0] == field[1][2] && field[1][0] != '_' && field[1][1] == '_'){
-        field[1][1] = 'o';
+        field[1][1] = pc;
     }
     else if (field[1][2] == field[1][1] && field[1][1] != '_' && field[1][0] == '_'){
-        field[1][0] = 'o';
+        field[1][0] = pc;
     }
     else if (field[0][1] == field[1][1] && field[0][1] != '_' && field[2][1] == '_'){
-        field[2][1] = 'o';
+        field[2][1] = pc;
     }
     else if (field[0][1] == field[2][1] && field[2][1] != '_' && field[1][1] == '_'){
-        field[1][1] = 'o';
+        field[1][1] = pc;
     }
     else if (field[2][1] == field[1][1] && field[2][1] != '_' && field[0][1] == '_'){
-        field[0][1] = 'o';
+        field[0][1] = pc;
     }
-
-
     else if (field[0][0] == '_'){
-        field[0][0] = 'o';
+        field[0][0] = pc;
     }
     else if (field[0][2] == '_'){
-        field[0][2] = 'o';
+        field[0][2] = pc;
     }
     else if (field[2][2] == '_'){
-        field[2][2] = 'o';
+        field[2][2] = pc;
     }
     else if (field[2][0] == '_'){
-        field[2][0] = 'o';
+        field[2][0] = pc;
     }
 
 }
@@ -188,29 +180,31 @@ int main()
         pc = 'o';
     }
     else {
-        pl = '0';
+        pl = 'o';
         pc = 'x';
     }
     string b;
     while (true){
         print_field(0);
+        cout << "Your turn:";
         cin >> b;
         hum_step(b);
         print_field(0);
         if (check(0) == 1){
-            cout << "x won";
+            cout << "You won";
             break;}
         if (check(0) == -1){
-            cout << "nobody win";
+            cout << "nobody won";
             break;
         }
+        cout << "Computer turn:";
         pc_step(0);
         if (check(0) == 1){
             print_field(0);
-            cout << "o won";
+            cout << "Computer won";
             break;}
         if (check(0) == -1){
-            cout << "nobody win";
+            cout << "nobody won";
             break;
         }
     }
