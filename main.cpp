@@ -182,6 +182,8 @@ int main()
     else {
         pl = 'o';
         pc = 'x';
+        cout << "Computer turn:";
+        pc_step(0);
     }
     string b;
     while (true){
@@ -204,6 +206,7 @@ int main()
             cout << "Computer won";
             break;}
         if (check(0) == -1){
+            print_field(0);
             cout << "nobody won";
             break;
         }
